@@ -1,4 +1,6 @@
 using System.Drawing;
+using System.Runtime.CompilerServices;
+
 public abstract class Hittable : Drawable
 {
     public Hittable(string path, int width, int height)
@@ -13,11 +15,12 @@ public abstract class Hittable : Drawable
     public float Old_X { get; set; }
     public float Old_Y { get; set; }
     public bool isColided { get; set; }
+    public bool isSolid { get; set; }
 
     public virtual void NewHitbox(float x, float y, float width, float height)
     {
         this.Hitbox = new RectangleF(x - (width / 2), y - (height / 2), width, height);
     }
 
-    public virtual void Colision() { }
+    public virtual void Colision(Hittable hittable) { }
 }

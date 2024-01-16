@@ -11,6 +11,12 @@ Player player = new(15, 15);
 player.X = 100;
 player.Y = 100;
 
+Wall wall = new();
+wall.X = 100;
+wall.Y = 100;
+wall.Width = 50;
+wall.Height = 30;
+
 var timer = new Timer { Interval = 20, };
 
 var form = new Form
@@ -33,10 +39,12 @@ form.Load += (o, e) =>
 timer.Tick += (o, e) =>
 {
     g.Clear(Color.Black);
-
     player.Move();
+    wall.Draw(g, pb);
     player.Draw(g, pb);
     pb.Refresh();
+    player.Colision(wall);
+    wall.Colision(player);
 };
 
 form.KeyDown += (o, e) =>

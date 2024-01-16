@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Windows.Forms;
+
 public abstract class Drawable : IDrawable
 {
     public float X { get; set; }
@@ -8,14 +9,17 @@ public abstract class Drawable : IDrawable
     public float Height { get; set; }
     public Image Image { get; set; } = null;
 
-    public Drawable(string path, int width, int height) { 
+    public Drawable(string path, int width, int height)
+    {
         setImage(path);
         this.Width = width;
-        this.Height = height; 
+        this.Height = height;
     }
-    public Drawable(int width, int height) { 
+
+    public Drawable(int width, int height)
+    {
         this.Width = width;
-        this.Height = height; 
+        this.Height = height;
     }
 
     public Drawable() { }

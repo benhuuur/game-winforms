@@ -2,12 +2,14 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-
-
 public class Player : Hittable, IMoveable
 {
     public Player(int width, int height)
-        : base(width, height) { }
+        : base(width, height)
+    {
+        isSolid = true;
+    }
+
     public int Hp { get; set; }
     public float Base_Speed { get; set; } = 5;
     public float Vx { get; set; }
@@ -30,7 +32,6 @@ public class Player : Hittable, IMoveable
         g.DrawRectangle(Pens.White, this.Hitbox);
     }
 
-
     public void Move()
     {
         Old_X = X;
@@ -44,6 +45,7 @@ public class Player : Hittable, IMoveable
         X += (float)(Vx / magnitude) * Base_Speed;
         Y += (float)(Vy / magnitude) * Base_Speed;
     }
+
     public void MoveUp() => this.Vy = -1;
 
     public void MoveDown() => this.Vy = 1;

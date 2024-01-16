@@ -1,7 +1,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-public class Background:Drawable
+public class Background : Drawable
 {
     public Background(string path)
     {
